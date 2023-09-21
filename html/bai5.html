@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuần 02 bài 5</title>
+</head>
+
+<body>
+    <h1>XMLHttpRequest RESTful DELETE</h1>
+    <script>
+        // Delete a user
+
+        // var url = "http://localhost:8080/api/v1/users";
+        var url = "https://my-json-server.typicode.com/typicode/demo/posts";
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("DELETE", url + '/3', true);
+
+        xhr.onload = function() {
+
+            var users = JSON.parse(xhr.responseText);
+
+            if (xhr.readyState == 4 && xhr.status == 200) {
+
+                console.table(users);
+                console.log("Xoa Data thanh cong");
+
+            } else {
+
+                console.error(users);
+                console.log('Xoa data khong thanh cong');
+
+            }
+
+        }
+
+        xhr.send(null);
+    </script>
+</body>
+
+</html>
